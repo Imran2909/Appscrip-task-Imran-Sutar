@@ -1,0 +1,87 @@
+.headingSection {
+  width: 50%; /* matches 721px on ~1440px screen = responsive */
+  /* max-width: 721px; */
+  margin: 40px auto 0 auto; /* centers horizontally */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+/* 🔹 Heading Title */
+.headingTitle {
+  font-family: "Simplon Norm", sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔹 Paragraph Text */
+.headingText {
+  font-family: "Simplon Norm", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 40px;
+  letter-spacing: 0px;
+  color: #363636;
+  opacity: 0.9;
+  /* margin-top: 20px; */
+  max-width: 600px;
+  text-align: center;
+}
+
+/* 🔹 Responsive scaling — same logic (0.8888x distances) */
+@media (max-width: 1280px) {
+  .headingSection {
+    width: 56%; /* scaled for 1280px */
+    margin-top: 53.33px; /* 60 * 0.8888 */
+  }
+
+  .headingTitle {
+    font-size: 36px; /* 60 * 0.8888 */
+  }
+
+  .headingText {
+    font-size: 18px; /* 22 * 0.8888 */
+    line-height: 26px; /* 40 * 0.8888 */
+    margin-top: 12px; /* 20 * 0.8888 */
+  }
+}
+
+@media (max-width: 768px) {
+  .headingSection {
+    width: 80%;
+    margin-top: 40px;
+  }
+
+  .headingTitle {
+    font-size: 38px;
+    line-height: 100%;
+  }
+
+  .headingText {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headingTitle {
+    font-size: 30px;
+    line-height: 100%;
+  }
+
+  .headingText {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}

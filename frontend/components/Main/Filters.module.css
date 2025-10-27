@@ -1,0 +1,205 @@
+/* Filters.module.css — left filter sidebar */
+
+/* container (fixed width matching layout) */
+.container {
+  width: 280px;
+  box-sizing: border-box;
+  padding: 12px 8px;
+  font-family: "Simplon Norm", sans-serif;
+  color: #1a1a1a;
+}
+
+.visible {
+  /* placeholder for main toggle — optional */
+}
+
+/* top checkbox: CUSTOMIZBLE */
+.topCheckbox {
+  padding: 6px 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  appearance: none;
+  border: 1px solid #999;
+  border-radius: 2px;
+}
+
+.checkboxLabel input[type="checkbox"]:checked {
+  background: #111;
+  border-color: #111;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path fill='none' stroke='%23fff' stroke-width='2' d='M2 8l3 3 7-7'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checkboxText {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+
+/* thin line below CUSTOMIZBLE */
+.separator {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 10px 0;
+}
+
+/* sections container */
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* each filter section */
+.section {
+  position: relative;
+  width: 100%;
+}
+
+/* clickable header area */
+.sectionHeader {
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 6px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* left area of header (title + All text) */
+.sectionTextGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+/* filter title */
+.sectionTitle {
+  font-family: "Simplon Norm", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: #1a1a1a;
+}
+
+/* “All” label or selected text — directly below title */
+.sectionAllLabel {
+  font-family: "Simplon Norm", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1a1a1a;
+}
+
+/* right-side chevron */
+.chevron {
+  width: 16px;
+  height: 16px;
+  color: #666;
+  margin-top: 4px;
+  transition: transform 160ms ease;
+}
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* divider line after each section header */
+.sectionDivider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 4px 0;
+}
+
+/* expanded content area */
+.panel {
+  padding: 12px 8px 16px 8px;
+  background: #fff;
+}
+
+/* “Unselect all” link */
+.unselect {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  color: #8f9aa1;
+  font-family: "Adobe Caslon Pro", serif;
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* options container */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* checkbox + text line */
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* checkboxes */
+.optionLabel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  border: 1px solid #bdbdbd;
+  border-radius: 2px;
+}
+
+.optionLabel input[type="checkbox"]:checked {
+  background: #111;
+  border-color: #111;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path fill='none' stroke='%23fff' stroke-width='2' d='M2 8l3 3 7-7'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* checkbox text */
+.optionText {
+  font-size: 14px;
+  color: #222;
+}
+
+/* spacing between sections */
+.section + .section {
+  padding-top: 6px;
+}
+
+/* mobile adjustments */
+@media (max-width: 992px) {
+  .container {
+    width: 100%;
+    padding: 10px 12px;
+  }
+}

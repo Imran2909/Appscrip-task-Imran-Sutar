@@ -1,32 +1,52 @@
+"use client";
+
 import React, { useState } from "react";
 import styles from "./Main.module.css";
-import Topbar from "./Topbar";
-import Filters from "./Filters";
-import Products from "./Products";
+import Topbar from "../Topbar/Topbar";
+import Filters from "../Filter/Filters";
+import Products from "../Products/Products";
+import Footer from "../Footer/Footer";
 
-const Main = () => {
-  const [showFilter, setShowFilter] = useState(false);
-
-  const toggleFilter = () => setShowFilter((s) => !s);
+export default function Main() {
+  const [showFilter, setShowFilter] = useState(true);
+  const toggleFilter = () => setShowFilter((prev) => !prev);
 
   return (
-    <main className={styles.mainWrapper}>
-      {/* Topbar (now separate component) */}
-      <Topbar
-        initialCount={3425}
-        showFilter={showFilter}
-        toggleFilter={toggleFilter}
-      />
+    <>
+      {/* ---------- Main Page Content ---------- */}
+      <div className={styles.mainWrapper}>
+        <Topbar
+          initialCount={3425}
+          showFilter={showFilter}
+          toggleFilter={toggleFilter}
+        />
 
-      <div className={styles.hr} />
+        <div className={styles.hr} />
 
-      {/* Main content composed of Filters + Products */}
-      <div className={styles.content}>
-        <Filters visible={showFilter} />
-        <Products items={8} />
+        <div className={styles.content}>
+          {showFilter && (
+            <aside
+              className={`${styles.leftSection} ${
+                showFilter ? styles.visible : ""
+              }`}
+              id="filters"
+            >
+              <Filters />
+            </aside>
+          )}
+
+          <section
+            className={`${styles.rightSection} ${
+              showFilter ? styles.gridThree : styles.gridFour
+            }`}
+          >
+            <Products columns={showFilter ? 3 : 4} />
+          </section>
+        </div>
       </div>
-    </main>
-  );
-};
 
-export default Main;
+      {/* ---------- Footer (Full Width) ---------- */}
+      <Footer />
+    </>
+  );
+}

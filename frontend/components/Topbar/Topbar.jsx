@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "./Main.module.css";
+import styles from "./Topbar.module.css";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { GoChevronDown } from "react-icons/go";
 import { FiCheck } from "react-icons/fi";

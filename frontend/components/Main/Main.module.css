@@ -3,116 +3,11 @@
 /* wrapper keeps in line with header sizing approach */
 .mainWrapper {
   width: 100%;
-  max-width: 1440px;
+  /* max-width: 1440px; */
   margin: 0 auto;
   padding: 0 6%;
   box-sizing: border-box;
   font-family: "Simplon Norm", sans-serif;
-  color: #1a1a1a;
-}
-
-/* ---------- Topbar ---------- */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 64px; /* visually aligned with previous top spacing */
-  gap: 24px;
-}
-
-/* left block contains item count + toggle */
-.leftBlock {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-/* item count (3425 ITEMS) */
-.itemCount {
-  font-family: "Simplon Norm", sans-serif;
-  font-weight: 700; /* Bold */
-  font-size: 18px;
-  line-height: 40px;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  color: #1a1a1a;
-}
-
-/* show/hide filter button */
-.filterToggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  align-self: center;
-}
-
-/* chevron icon container */
-.chevIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: #888;
-}
-
-/* the "Show Filter" / "Hide Filter" text */
-.toggleText {
-  font-family: "Adobe Caslon Pro", serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 40px;
-  letter-spacing: 0;
-  text-decoration: underline;
-  text-decoration-style: solid;
-  text-decoration-thickness: 1px;
-  color: #666;
-  background: transparent;
-  border: none;
-}
-
-/* right block (recommended) */
-.rightBlock {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* RECOMMENDED text (positioned for dropdown) */
-.recommended {
-  position: relative; /* required for dropdown positioning */
-  font-family: "Simplon Norm", sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 40px;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.recommendedText{
-  font-weight: 600;
-}
-
-/* button inside recommended wrapper */
-.recommendedBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  border: none;
-  padding: 8px 10px; /* small hit-area */
-  cursor: pointer;
-}
-
-.downIcon {
-  font-size: 14px;
   color: #1a1a1a;
 }
 
@@ -278,6 +173,90 @@
   flex: 1;
   text-align: right;
 }
+
+/* Main layout container */
+.mainWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Divider line */
+.hr {
+  width: 100%;
+  height: 1px;
+  background-color: #00000010;
+}
+
+/* Layout below Topbar */
+.content {
+  display: flex;
+  width: 100%;
+  /* max-width: 1280px; */
+  gap: 24px;
+  margin-top: 24px;
+  transition: all 0.3s ease;
+}
+
+/* Left filters column */
+.leftSection {
+  width: 280px;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Right section (products grid wrapper) */
+.rightSection {
+  flex: 1;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* When filter visible: show 3 per row */
+.gridThree .productsGrid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* When filter hidden: show 4 per row */
+.gridFour .productsGrid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.footerSection {
+  width: 100vw; /* Full viewport width */
+  margin-top: 40px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .leftSection {
+    width: 100%;
+  }
+}
+
+  .gridThree .productsGrid,
+  .gridFour .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+@media (max-width: 576px) {
+  .gridThree .productsGrid,
+  .gridFour .productsGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 
 /* ---------- Responsive adjustments ---------- */
 @media (max-width: 1280px) {

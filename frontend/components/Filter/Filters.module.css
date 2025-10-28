@@ -15,7 +15,7 @@
 
 /* top checkbox: CUSTOMIZBLE */
 .topCheckbox {
-  padding: 6px 4px;
+  padding: 1px 4px;
   display: flex;
   align-items: center;
   gap: 8px;

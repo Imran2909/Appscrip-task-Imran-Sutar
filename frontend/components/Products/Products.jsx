@@ -107,9 +107,9 @@ const Products = ({ columns }) => {
     <section className={styles.productsWrapper}>
       <div
         className={styles.productsGrid}
-        // style={{
-        //   gridTemplateColumns: `repeat(${columns}, 1fr)`,
-        // }}
+        style={{
+          gridTemplateColumns: `repeat(${columns}, 1fr)`,
+        }}
       >
         {productList}
       </div>

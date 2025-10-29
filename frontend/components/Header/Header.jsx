@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import Image from "next/image";
 import { RiSearch2Line } from "react-icons/ri";
@@ -8,25 +8,36 @@ import { HiOutlineUser } from "react-icons/hi2";
 import { GoChevronDown } from "react-icons/go";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className={styles.headerWrapper}>
-      {/* 🔹 Top Strip */}
       <div className={styles.topStrip}>
         <div className={styles.stripLeft}>Lorem ipsum dolor</div>
         <div className={styles.stripCenter}>Lorem ipsum dolor</div>
         <div className={styles.stripRight}>Lorem ipsum dolor</div>
       </div>
 
-      {/* 🔹 Main Header Section */}
       <div className={styles.mainHeader}>
-        <div className={styles.logoSection}>
-          <Image
-            src="/images/Logo.png"
-            alt="Brand Logo"
-            width={36}
-            height={36}
-            className={styles.logo}
-          />
+        <div className={styles.leftSection} >
+          <div
+            className={styles.hamburger}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div className={styles.logoSection}>
+            <Image
+              src="/images/Logo.png"
+              alt="Brand Logo"
+              width={26}
+              height={26}
+              className={styles.logo}
+            />
+          </div>
         </div>
 
         <div className={styles.centerTitle}>LOGO</div>
@@ -35,14 +46,13 @@ const Header = () => {
           <RiSearch2Line className={styles.icon} />
           <PiHeartLight className={styles.icon} />
           <BsHandbag className={styles.icon} />
-          <HiOutlineUser className={styles.icon} />
           <div className={styles.langSelect}>
+            <HiOutlineUser className={styles.icon} />
             ENG <GoChevronDown className={styles.dropdownIcon} />
           </div>
         </div>
       </div>
 
-      {/* 🔹 Navigation Bar */}
       <nav className={styles.navBar}>
         <ul className={styles.navList}>
           <li>SHOP</li>
@@ -52,6 +62,20 @@ const Header = () => {
           <li>CONTACT US</li>
         </ul>
       </nav>
+
+      <div className={styles.strip}>
+        <p className={styles.home} >  HOME <span className={styles.shop} >SHOP</span>  </p>
+      </div>
+
+      {menuOpen && (
+        <ul className={styles.mobileNav}>
+          <li>SHOP</li>
+          <li>SKILLS</li>
+          <li>STORIES</li>
+          <li>ABOUT</li>
+          <li>CONTACT US</li>
+        </ul>
+      )}
     </header>
   );
 };

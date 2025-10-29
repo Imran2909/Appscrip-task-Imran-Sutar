@@ -1,177 +1,156 @@
-/* Footer.module.css */
-
-/* Base */
 .footer {
-  background: #000000;
+  width: 100%;
+  background: #000;
   color: #fff;
-  padding: 36px 0;
   font-family: "Simplon Norm", sans-serif;
-  box-sizing: border-box;
-  margin-top: 40px;
   padding: 60px 80px 30px 80px;
+  box-sizing: border-box;
+  margin-top: 20px;
 }
 
 .inner {
-  /* max-width: 1200px; */
+  width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
-/* Top row layout */
+/* ---------- Top Section ---------- */
 .topRow {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
+  gap: 40px;
   align-items: flex-start;
-  padding-bottom: 24px;
+  padding-bottom: 32px;
+  flex-wrap: wrap;
 }
 
 .leftCol {
-  flex: 1 1 60%;
-  /* max-width: 720px; */
+  flex: 1;
+  min-width: 300px;
 }
 
 .rightCol {
-  flex: 1 1 35%;
-  /* max-width: 360px; */
+  flex: 0.8;
+  min-width: 260px;
 }
 
-/* Headings */
 .heading {
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
   text-transform: uppercase;
+  color: #fff;
 }
 
 .headingSmall {
   font-size: 14px;
   font-weight: 700;
-  margin: 0 0 8px 0;
-  text-transform: uppercase;
-}
-
-/* descriptive text */
-.subtext {
-  color: rgba(255,255,255,0.85);
-  margin: 20px 0 40px 0;
-  max-width: 520px;
-  line-height: 1.5;
-}
-.flagImage {
-  width: 20px;
-  height: 20px;
-  border-radius: 55%;
-  object-fit: cover;
-  display: inline-block;
-  margin: 8px 0px;
-}
-
-/* Subscribe form */
-.subscribeForm {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 12px;
-}
-
-.emailInput {
-  background: #ffffff;
-  color: #000;
-  border: none;
-  padding: 12px 14px;
-  width: 360px;
-  max-width: 100%;
-  box-sizing: border-box;
-  border-radius: 2px;
-  font-size: 14px;
-}
-
-.emailInput::placeholder {
-  color: #9b9b9b;
-}
-
-/* Subscribe button is white as requested */
-.subscribeBtn {
-  background: #000000;
-  color: #434343;
-  padding: 12px 18px;
-  border: 1px solid #4d4c4c;
-  border-radius: 4px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-/* Right column small contact */
-.contact {
-  color: rgba(255,255,255,0.9);
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-/* short hr */
-.hrShort {
-  width: 100%;
-  border: none;
-  height: 1px;
-  background: rgba(255,255,255,0.06);
-  margin: 16px 0;
-}
-
-/* Currency row */
-.currency {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   margin-bottom: 8px;
-  font-weight: 700;
-}
-
-.flag {
-  font-size: 18px;
-  line-height: 1;
-}
-
-.currencyText {
-  font-size: 14px;
-}
-
-/* small note text */
-.currencyNote {
-  color: rgba(255,255,255,0.6);
-  font-size: 10px;
-  margin-top: 8px;
-    color: #fff;
-
-}
-
-/* divider between top and links */
-.divider {
-  height: 1px;
-  background: rgba(255,255,255,0.06);
-  margin: 2px 0 20px;
-  border: 0.5px solid white;
-}
-
-/* Links area layout */
-.linksArea {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
-  align-items: start;
-}
-
-/* column title */
-.colTitle {
-  font-weight: 700;
-  font-size: 14px;
   text-transform: uppercase;
   color: #fff;
 }
 
-/* sectionToggle: header button that toggles on mobile */
+.subtext {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #fff;
+  margin: 16px 0 28px;
+  max-width: 520px;
+}
+
+.subscribeForm {
+  width: 120%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.emailInput {
+  flex: 1;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 2px;
+  font-size: 14px;
+  box-sizing: border-box;
+  max-width: 380px;
+}
+
+.subscribeBtn {
+  width: 30%;
+  background: #000000;
+  color: #575757;
+  padding: 12px 20px;
+  border: 1px solid #575757;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.subscribeBtn:hover {
+  opacity: 0.9;
+}
+
+/* Divider line */
+.hrShort {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  margin: 16px 0;
+}
+
+/* Contact & Currency */
+.contact {
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.currency {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.flagImage {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.currencyText {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.currencyNote {
+  font-size: 10px;
+  color: #fff;
+  margin-top: 4px;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0px 0px 20px 0px;
+}
+
+/* ---------- Links Area ---------- */
+.linksArea {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
 .sectionToggle {
   display: flex;
   justify-content: space-between;
@@ -181,86 +160,67 @@
   width: 100%;
   padding: 8px 0;
   cursor: pointer;
+  color: #fff;
 }
 
-/* chevron / visual for mobile */
-.chev {
-  color: rgba(255,255,255,0.8);
+.colTitle {
   font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
 }
 
-/* links list (hidden by default on mobile) */
 .colList {
-  display: block;
   margin-top: 6px;
-  max-height: 2000px;
-  overflow: hidden;
-  transition: max-height 280ms ease;
 }
 
-/* closed state for mobile (we will toggle class .open) */
-.colList:not(.open) {
-  /* no-op for desktop — mobile below will override to collapsed */
-}
-
-/* Links */
 .linkItem {
   display: block;
-  color: rgba(255,255,255,0.9);
+  color: #fff;
   text-decoration: none;
-  padding: 8px 0;
   font-size: 14px;
+  padding: 8px 0;
 }
 
-/* Social icons row */
+.linkItem:hover {
+  text-decoration: underline;
+}
+
+/* Social icons */
 .socialRow {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
-/* social button outer circle 32x32; inner icon ~18x18 */
 .socialBtn {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.06);
-  display: inline-flex;
+  border: 2px solid #fff;
+  display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
   color: #fff;
-  border: 2px solid #ffffff;
-}
-
-.iconRound {
-  width: 32px;
-  height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
 }
 
 .iconInner {
   width: 18px;
   height: 18px;
-  font-size: 18px;
 }
 
-/* Payment logos title */
 .paymentTitle {
-  margin-top: 44px;
-  font-weight: 700;
+  margin-top: 36px;
   font-size: 14px;
+  font-weight: 700;
+  color: #fff;
 }
 
-/* payment logos row */
 .paymentRow {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  align-items: center;
   margin-top: 10px;
 }
 
@@ -268,52 +228,211 @@
   width: 56px;
   height: 35px;
   object-fit: contain;
-  background: transparent;
   border-radius: 4px;
+  background: transparent;
 }
 
-/* footer bottom */
 .footerBottom {
-  margin-top: 20px;
+  margin-top: 32px;
   text-align: center;
-  color: rgba(255,255,255,0.7);
   font-size: 13px;
-  padding-bottom: 2px;
+  color: #fff;
 }
 
-/* ===== Mobile styles: make accordions collapsed ===== */
-@media (max-width: 768px) {
-  .inner {
-    padding: 0 12px;
+/* ---------- Responsive Design ---------- */
+
+@media (max-width: 1444px) {
+  .subscribeForm {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .footer {
+    padding: 50px 40px;
+  }
+  .topRow {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .linksArea {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .subscribeForm {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.subscribeBtn{
+  padding-left: -24px;
+}
+}
+
+/* Mobile */
+@media (max-width: 769px) {
+  .footer {
+    padding: 40px 20px;
   }
 
   .topRow {
     flex-direction: column;
+    gap: 20px;
   }
 
   .rightCol {
     width: 100%;
-    max-width: none;
-    margin-top: 10px;
+    margin-top: 8px;
+  }
+
+  .subscribeForm {
+    flex-wrap: nowrap;
+    width: 150%;
+  }
+
+  .emailInput {
+    width: 100%;
+  }
+
+  .subscribeBtn {
+    width: 30%;
+    font-size: 12px;
+    padding-left: 0px;
   }
 
   .linksArea {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .col {
-    border: 1px solid rgb(255, 255, 255);
-    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 12px;
   }
 
-  /* collapse lists on mobile unless .open present */
   .colList {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 260ms ease;
+    display: none;
   }
 
   .colList.open {
-    max-height: 500px; /* enough for the list to open */
+    display: block;
+  }
+
+  .socialRow {
+    justify-content: flex-start;
+  }
+.divider{
+    visibility: hidden;
+    margin: -10px 0px;
+  }
+  .footerBottom {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 485px) {
+  .subscribeForm {
+    /* flex-direction: column; */
+    /* align-items: stretch; */
+    gap: 10px;
+    width: 120% ;
+  }
+
+  .divider{
+    visibility: hidden;
+    margin: -10px 0px;
+  }
+
+  .emailInput {
+    width: 70%;
+  }
+   .subscribeBtn {
+    width: 30%;
+    font-size: 12px;
+    padding-left: 10px;
+  }
+  .paymentLogo {
+    width: 55px;
+    height: 30px;
+  }
+
+  .footerBottom {
+    font-size: 11px;
+  }
+}
+
+/* Very Small Devices (≤425px) */
+@media (max-width: 426px) {
+  .subscribeForm {
+    /* flex-direction: column; */
+    /* align-items: stretch; */
+    gap: 10px;
+    width: 100% ;
+  }
+
+  .divider{
+    visibility: hidden;
+    margin: -10px 0px;
+  }
+
+  .emailInput {
+    width: 70%;
+  }
+   .subscribeBtn {
+    width: 30%;
+    font-size: 12px;
+    padding-left: 10px;
+  }
+  .paymentLogo {
+    width: 55px;
+    height: 30px;
+  }
+
+  .footerBottom {
+    font-size: 11px;
+  }
+}
+
+/* Very Small Devices (≤425px) */
+@media (max-width: 377px) {
+  .subscribeForm {
+    /* flex-direction: column; */
+    /* align-items: stretch; */
+    gap: 10px;
+    width: 96%;
+  }
+
+  .divider{
+    visibility: hidden;
+    margin: -10px 0px;
+  }
+
+  .emailInput {
+    width: 60% !important;
+  }
+   .subscribeBtn {
+    width: 30%;
+    font-size: 12px;
+    padding-left: 10px;
+  }
+  .paymentLogo {
+    width: 55px;
+    height: 30px;
+  }
+
+  .footerBottom {
+    font-size: 11px;
   }
 }

@@ -1,29 +1,27 @@
 .headerWrapper {
   width: 100%;
-  /* max-width: 1440px; */
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   border-bottom: 1px solid #00000010;
   display: flex;
   flex-direction: column;
   font-family: "Simplon Norm", sans-serif;
+  box-sizing: border-box;
 }
 
-/* 🔹 Top Strip */
 .topStrip {
   width: 100%;
-  /* max-width: 1440px; */
-  height: 26px; /* 32 * 0.8888 */
+  height: 26px;
   background: #000;
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 7.11px;
-  padding-right: 17%; /* responsive instead of 243.54px */
-  padding-bottom: 7.11px;
-  padding-left: 17%; /* responsive instead of 243.54px */
+  padding: 7px 17%;
   box-sizing: border-box;
   font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .stripLeft,
@@ -33,30 +31,29 @@
   font-family: "Simplon Norm", sans-serif;
 }
 
-/* 🔹 Main Header Section */
 .mainHeader {
   width: 100%;
-  /* max-width: 1440px; */
-  height: 80px; /* 188 * 0.8888 */
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   border-bottom: 1px solid #00000010;
   box-sizing: border-box;
-  padding-left: 6%; /* 85.33px → 6% */
-  padding-right: 6%; /* 85.33px → 6% */
+  padding: 0 6%;
+  gap: 10px;
 }
 
 .logoSection {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  gap: 8px;
 }
 
 .logo {
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
 }
 
 .centerTitle {
@@ -75,7 +72,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1.6vw; /* replaces 21.33px for scaling with viewport */
+  gap: 1.2vw;
 }
 
 .icon {
@@ -88,7 +85,7 @@
 .langSelect {
   display: flex;
   align-items: center;
-  gap: 3.55px;
+  gap: 4px;
   font-family: "Simplon Norm", sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -101,19 +98,17 @@
   height: 16px;
 }
 
-/* 🔹 Navigation Bar */
 .navBar {
   width: 100%;
-  /* max-width: 1440px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 36px;
+  height: 40px;
 }
 
 .navList {
   display: flex;
-  gap: 4.4vw; /* replaces 56px with responsive spacing */
+  gap: 4.4vw;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -135,45 +130,198 @@
   color: #d41b38;
 }
 
-/* 🔹 Responsive */
+.leftSection {
+  display: flex;
+  gap: 12px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 1px;
+}
+
+/* Mobile Navigation (Hidden by default) */
+.mobileNav {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background-color: #fff;
+  padding: 16px 0;
+  border-top: 1px solid #00000010;
+}
+
+.mobileNav li {
+  font-size: 18px;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+.strip {
+  display: none;
+}
+
+.home {
+  display: inline-block;
+  margin-left: 24px;
+  color: #bfc8cd;
+}
+
+.shop {
+  color: #000000;
+  border-left: 2px solid #bfc8cd;
+  margin-left: 4px;
+  padding-left: 10px;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 1024px) {
   .topStrip {
-    padding-right: 8%;
-    padding-left: 8%;
+    padding: 7px 8%;
+    font-size: 13px;
   }
 
   .mainHeader {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 0 5%;
   }
 
   .navList {
-    gap: 3vw;
-    font-size: 18px;
+    gap: 3.2vw;
+    font-size: 15px;
   }
 }
 
 @media (max-width: 768px) {
   .topStrip {
-    padding-right: 4%;
-    padding-left: 4%;
+    justify-content: center;
+    font-size: 13px;
+    padding: 7px 3%;
+  }
+
+  .stripLeft,
+  .stripRight {
+    display: none;
+  }
+
+  .stripCenter {
+    display: block;
   }
 
   .mainHeader {
-    flex-direction: column;
-    height: auto;
-    padding: 18px;
-    gap: 14px;
+    height: 64px;
+    padding: 0 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logoSection {
+    display: flex;
+    align-items: center;
+    /* gap: 6px; */
+  }
+
+  .hamburger {
+    display: flex;
+    order: 1;
+  }
+
+  .logoSection {
+    order: 2;
   }
 
   .centerTitle {
+    order: 3;
     position: static;
     transform: none;
+    font-size: 26px;
   }
 
-  .navList {
-    flex-wrap: wrap;
-    gap: 20px;
-    font-size: 16px;
+  .iconSection {
+    order: 4;
+    gap: 10px;
+  }
+
+  .langSelect,
+  .iconSection .hiOutlineUser {
+    display: none !important;
+  }
+
+  .navBar {
+    display: none;
+  }
+
+  .strip {
+    display: inline-block;
+  }
+
+  .mobileNav {
+    display: flex;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .topStrip {
+    height: 24px;
+    padding: 6px 2%;
+    font-size: 12px;
+  }
+
+  .mainHeader {
+    height: 56px;
+    padding: 0 3%;
+    gap: 8px;
+  }
+
+  .logo {
+    width: 22px;
+    height: 22px;
+  }
+
+  .centerTitle {
+    font-size: 22px;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .iconSection {
+    gap: 8px;
+  }
+
+  .hamburger span {
+    width: 20px;
+  }
+}
+
+@media (max-width: 426px) {
+  .centerTitle {
+    font-size: 20px;
+  }
+
+  .iconSection {
+    gap: 6px;
+  }
+
+  .hamburger span {
+    width: 18px;
+  }
+
+  .topStrip {
+    font-size: 11px;
   }
 }

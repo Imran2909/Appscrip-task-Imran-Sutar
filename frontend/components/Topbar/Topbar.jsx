@@ -18,13 +18,13 @@ const Topbar = ({ initialCount = 3425, showFilter, toggleFilter }) => {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    function onDocClick(e) {
+    const handleClick = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setSortOpen(false);
       }
-    }
-    document.addEventListener("mousedown", onDocClick);
-    return () => document.removeEventListener("mousedown", onDocClick);
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   const handleSelect = (opt) => {
@@ -36,7 +36,6 @@ const Topbar = ({ initialCount = 3425, showFilter, toggleFilter }) => {
     <div className={styles.topbar}>
       <div className={styles.leftBlock}>
         <div className={styles.itemCount}>{initialCount} ITEMS</div>
-
         <button
           className={styles.filterToggle}
           onClick={toggleFilter}
@@ -53,7 +52,6 @@ const Topbar = ({ initialCount = 3425, showFilter, toggleFilter }) => {
       </div>
 
       <div className={styles.rightBlock}>
-        {/* Recommended (sorting) */}
         <div className={styles.recommended} ref={menuRef}>
           <button
             className={styles.recommendedBtn}
@@ -64,17 +62,11 @@ const Topbar = ({ initialCount = 3425, showFilter, toggleFilter }) => {
             <span className={styles.recommendedText}>{selected}</span>
             <GoChevronDown className={styles.downIcon} />
           </button>
-
           {sortOpen && (
-            <div
-              role="menu"
-              aria-label="Sort options"
-              className={styles.sortDropdown}
-            >
+            <div className={styles.sortDropdown}>
               {SORT_OPTIONS.map((opt) => (
                 <button
                   key={opt}
-                  role="menuitem"
                   className={`${styles.sortItem} ${
                     selected === opt ? styles.sortItemSelected : ""
                   }`}
@@ -89,6 +81,39 @@ const Topbar = ({ initialCount = 3425, showFilter, toggleFilter }) => {
             </div>
           )}
         </div>
+      </div>
+
+      <div className={styles.mobileTopbar}>
+        <button className={styles.mobileFilterBtn} onClick={toggleFilter}>
+          FILTER
+        </button>
+        <div className={styles.divider}></div>
+        <button
+          className={styles.mobileRecommendedBtn}
+          onClick={() => setSortOpen((s) => !s)}
+        >
+          <span className={styles.recommendedText}>RECOMMENDED</span>
+          <GoChevronDown className={styles.downIcon} />
+        </button>
+
+        {sortOpen && (
+          <div className={styles.sortDropdownMobile}>
+            {SORT_OPTIONS.map((opt) => (
+              <button
+                key={opt}
+                className={`${styles.sortItem} ${
+                  selected === opt ? styles.sortItemSelected : ""
+                }`}
+                onClick={() => handleSelect(opt)}
+              >
+                <span className={styles.checkWrap}>
+                  {selected === opt ? <FiCheck /> : null}
+                </span>
+                <span className={styles.sortLabel}>{opt}</span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

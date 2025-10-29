@@ -1,317 +1,142 @@
-/* ---------- Main.module.css (no :root, no CSS variables) ---------- */
-
-/* wrapper keeps in line with header sizing approach */
 .mainWrapper {
   width: 100%;
-  /* max-width: 1440px; */
   margin: 0 auto;
   padding: 0 6%;
   box-sizing: border-box;
   font-family: "Simplon Norm", sans-serif;
   color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* subtle HR line under topbar */
 .hr {
+  width: 100%;
   height: 1px;
-  background: rgba(0, 0, 0, 0.06);
+  background-color: rgba(0, 0, 0, 0.06);
   margin: 8px 0 20px 0;
 }
 
-/* ---------- Content layout (filters + products) ---------- */
 .content {
-  display: grid;
-  grid-template-columns: 280px 1fr; /* left filter fixed, right flexible */
+  display: flex;
+  width: 100%;
   gap: 32px;
-  align-items: start;
-  box-sizing: border-box;
+  align-items: flex-start;
+  transition: all 280ms ease;
 }
 
-/* Filters (left) */
-.filters {
-  background: transparent;
-  transition: transform 220ms ease, opacity 220ms ease;
-  transform-origin: left top;
-  transform: translateX(-12px) scaleX(0.98);
-  opacity: 0;
-  pointer-events: none;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* visible state when toggled on */
-.filters.visible {
-  transform: none;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Small filter content (minimal DOM) */
-.filterSectionTitle {
-  font-family: "Simplon Norm", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 12px;
-}
-
-.filterList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.chk {
-  font-size: 14px;
-  color: #333;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-/* Products (right) */
-.products {
-  width: 100%;
-}
-
-.productsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  align-items: start;
-}
-
-/* Minimal product card */
-.card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.06);
-  padding: 12px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-height: 180px;
-}
-
-.thumb {
-  width: 100%;
-  height: 120px;
-  background: linear-gradient(90deg,#f2f2f2,#e9e9e9);
-  border-radius: 4px;
-}
-
-.cardTitle {
-  font-size: 14px;
-  margin: 0;
-  color: #111;
-}
-
-.cardPrice {
-  font-weight: 700;
-  margin: 0;
-  color: #111;
-}
-
-/* ---------- Sorting dropdown (RECOMMENDED) ---------- */
-
-/* dropdown (0.8x size of the given spec) */
-/* given width: 235 * 0.8 = 188px; height: 324 * 0.8 = 259.2px */
-.sortDropdown {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  width: 180px; /* 235 * 0.8 */
-  max-height: 260px; /* ~324 * 0.8 */
-  background: #ffffff;
-  border-radius: 4px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  /* padding: 12px 8px; */
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  z-index: 60;
-  box-sizing: border-box;
-  padding: 12px 0px;
-}
-
-/* each item: text aligned to right as per spec */
-.sortItem {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* keep label to right */
-  /* gap: 8px; */
-  border: none;
-  background: transparent;
-  /* padding: 10px 8px; */
-  cursor: pointer;
-  font-family: "Simplon Norm", sans-serif;
-  /* font-weight: 400; */
-  font-size: 13px; /* as specified */
-  /* line-height: 40px; */
-  text-transform: uppercase;
-  color: #111;
-  text-align: right;
-  margin-bottom: 10px;
-}
-
-/* selected item: show bolder text and check mark */
-.sortItemSelected {
-  font-weight: 700;
-}
-
-/* check icon container (left side inside item) */
-.checkWrap {
-  width: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
-  color: #111;
-}
-
-/* adjust the label so it can right-align while check is visible on left */
-.sortLabel {
-  flex: 1;
-  text-align: right;
-}
-
-/* Main layout container */
-.mainWrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Divider line */
-.hr {
-  width: 100%;
-  height: 1px;
-  background-color: #00000010;
-}
-
-/* Layout below Topbar */
-.content {
-  display: flex;
-  width: 100%;
-  /* max-width: 1280px; */
-  gap: 24px;
-  margin-top: 24px;
-  transition: all 0.3s ease;
-}
-
-/* Left filters column */
+/* left filter column */
 .leftSection {
   width: 280px;
   flex-shrink: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: all 320ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform, opacity, max-height;
+  box-sizing: border-box;
 }
 
-/* Right section (products grid wrapper) */
+/* when leftSection is rendered it should be visible; the render logic is in JSX */
+.leftSectionHidden {
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* right section (products) */
 .rightSection {
   flex: 1;
   width: 100%;
-  transition: all 0.3s ease;
+  transition: all 280ms ease;
+  box-sizing: border-box;
 }
 
-/* When filter visible: show 3 per row */
+/* grid mode classes adjust number of columns (desktop) */
 .gridThree .productsGrid {
   grid-template-columns: repeat(3, 1fr);
 }
-
-/* When filter hidden: show 4 per row */
 .gridFour .productsGrid {
   grid-template-columns: repeat(4, 1fr);
 }
 
 .footerSection {
-  width: 100vw; /* Full viewport width */
+  width: 100%;
   margin-top: 40px;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
 }
 
-/* Responsive tweaks */
-@media (max-width: 1024px) {
-  .content {
-    flex-direction: column;
-  }
+/* small baseline spacing normalization for product area */
+.productsWrapper {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Desktop -> tablets adjustments */
+@media (max-width: 1280px) {
+  .mainWrapper { padding: 0 5%; }
+  .content { gap: 24px; }
+  .gridThree .productsGrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* <= 992px: stack filters above products */
+@media (max-width: 992px) {
+  .mainWrapper { padding: 0 4%; }
+  .content { flex-direction: column; gap: 20px; align-items: stretch; }
 
   .leftSection {
     width: 100%;
-  }
-}
-
-  .gridThree .productsGrid,
-  .gridFour .productsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-
-@media (max-width: 576px) {
-  .gridThree .productsGrid,
-  .gridFour .productsGrid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-
-/* ---------- Responsive adjustments ---------- */
-@media (max-width: 1280px) {
-  .mainWrapper { padding: 0 5%; }
-
-  .content {
-    grid-template-columns: 240px 1fr; /* smaller filter width */
-  }
-
-  .productsGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 992px) {
-  .mainWrapper { padding: 0 4%; }
-
-  .content {
-    grid-template-columns: 1fr; /* single column: products only */
-  }
-
-  /* show filters as a collapsible horizontal block above products if visible */
-  .filters {
-    grid-column: 1 / -1;
-    transform: none;
+    order: 1;
     opacity: 1;
-    pointer-events: auto;
-    margin-bottom: 16px;
+    transform: none;
+    max-height: 2000px;
   }
 
-  .productsGrid {
+  .rightSection { order: 2; }
+
+  .gridThree .productsGrid,
+  .gridFour .productsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* <= 768px: tighter paddings and spacing */
 @media (max-width: 768px) {
-  .sortDropdown {
-    right: 8px;
-    width: 80%;
+  .mainWrapper { padding: 0 3%; }
+  .content { gap: 16px; }
+  .leftSection { margin-bottom: 8px; }
+  .gridThree .productsGrid,
+  .gridFour .productsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* <= 426px: filters above products, single column products, clean spacing */
+@media (max-width: 426px) {
+  .mainWrapper { padding: 0 3%; }
+  .content { flex-direction: column; gap: 12px; }
+
+  .leftSection {
+    width: 100%;
+    order: 1;
+    margin-bottom: 12px;
+    max-height: 2000px;
+    opacity: 1;
+    transform: none;
   }
 
-  .sortItem {
-    font-size: 16px;
-  }
+  .rightSection { order: 2; width: 100%; }
 
-  .topbar {
-    gap: 12px;
-    height: auto;
-    padding: 8px 0;
-    flex-wrap: wrap;
+  .gridThree .productsGrid,
+  .gridFour .productsGrid {
+    grid-template-columns: repeat(1, 1fr) !important;
   }
 }
 
-@media (max-width: 480px) {
-  .productsGrid {
-    grid-template-columns: repeat(1, 1fr);
-  }
+/* Force 1 column for extremely narrow screens too */
+@media (max-width: 360px) {
+  .gridThree .productsGrid,
+  .gridFour .productsGrid { grid-template-columns: repeat(1, 1fr) !important; }
 }
+
+/* accessibility focus outlines */
+.leftSection :focus,
+.rightSection :focus { outline: 3px solid rgba(0,0,0,0.04); outline-offset: 2px; }

@@ -1,21 +1,20 @@
-/* Filters.module.css — left filter sidebar */
-
-/* container (fixed width matching layout) */
 .container {
   width: 280px;
   box-sizing: border-box;
   padding: 12px 8px;
   font-family: "Simplon Norm", sans-serif;
   color: #1a1a1a;
+  background: transparent;
+  transition: max-height 320ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease;
+  will-change: max-height, opacity;
+  overflow: hidden;
 }
 
-.visible {
-  /* placeholder for main toggle — optional */
-}
+.visible {}
 
-/* top checkbox: CUSTOMIZBLE */
+/* Top checkbox */
 .topCheckbox {
-  padding: 1px 4px;
+  padding: 2px 4px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -36,7 +35,6 @@
   border: 1px solid #999;
   border-radius: 2px;
 }
-
 .checkboxLabel input[type="checkbox"]:checked {
   background: #111;
   border-color: #111;
@@ -52,27 +50,20 @@
   text-transform: uppercase;
 }
 
-/* thin line below CUSTOMIZBLE */
 .separator {
   height: 1px;
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(0,0,0,0.06);
   margin: 10px 0;
 }
 
-/* sections container */
 .sections {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
-/* each filter section */
-.section {
-  position: relative;
-  width: 100%;
-}
+.section { position: relative; width: 100%; }
 
-/* clickable header area */
 .sectionHeader {
   width: 100%;
   background: transparent;
@@ -85,7 +76,6 @@
   align-items: flex-start;
 }
 
-/* left area of header (title + All text) */
 .sectionTextGroup {
   display: flex;
   flex-direction: column;
@@ -93,27 +83,21 @@
   gap: 2px;
 }
 
-/* filter title */
 .sectionTitle {
-  font-family: "Simplon Norm", sans-serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
   text-transform: uppercase;
-  letter-spacing: 0;
   color: #1a1a1a;
 }
 
-/* “All” label or selected text — directly below title */
 .sectionAllLabel {
-  font-family: "Simplon Norm", sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   color: #1a1a1a;
 }
 
-/* right-side chevron */
 .chevron {
   width: 16px;
   height: 16px;
@@ -121,24 +105,25 @@
   margin-top: 4px;
   transition: transform 160ms ease;
 }
-.chevronOpen {
-  transform: rotate(180deg);
-}
+.chevronOpen { transform: rotate(180deg); }
 
-/* divider line after each section header */
 .sectionDivider {
   height: 1px;
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(0,0,0,0.06);
   margin: 4px 0;
 }
 
-/* expanded content area */
 .panel {
   padding: 12px 8px 16px 8px;
   background: #fff;
+  animation: fadeIn 200ms ease;
 }
 
-/* “Unselect all” link */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+
 .unselect {
   display: inline-block;
   background: transparent;
@@ -153,14 +138,12 @@
   padding: 0;
 }
 
-/* options container */
 .options {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* checkbox + text line */
 .optionLabel {
   display: flex;
   align-items: center;
@@ -168,7 +151,6 @@
   cursor: pointer;
 }
 
-/* checkboxes */
 .optionLabel input[type="checkbox"] {
   width: 18px;
   height: 18px;
@@ -176,7 +158,6 @@
   border: 1px solid #bdbdbd;
   border-radius: 2px;
 }
-
 .optionLabel input[type="checkbox"]:checked {
   background: #111;
   border-color: #111;
@@ -185,21 +166,20 @@
   background-position: center;
 }
 
-/* checkbox text */
-.optionText {
-  font-size: 14px;
-  color: #222;
-}
+.optionText { font-size: 14px; color: #222; }
 
-/* spacing between sections */
-.section + .section {
-  padding-top: 6px;
-}
+.section + .section { padding-top: 6px; }
 
-/* mobile adjustments */
+/* mobile: make the container full width and accordion-friendly */
 @media (max-width: 992px) {
-  .container {
-    width: 100%;
-    padding: 10px 12px;
-  }
+  .container { width: 100%; padding: 10px 12px; }
+}
+
+/* small screens improved spacing */
+@media (max-width: 426px) {
+  .container { padding: 10px 10px; }
+  .sectionHeader { padding: 12px 6px; }
+  .sectionTitle { font-size: 14px; }
+  .sectionAllLabel { font-size: 13px; color: #666; }
+  .panel { padding: 12px 6px 14px 6px; }
 }

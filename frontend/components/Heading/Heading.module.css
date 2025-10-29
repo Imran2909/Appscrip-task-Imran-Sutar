@@ -64,24 +64,43 @@
   }
 
   .headingTitle {
-    font-size: 38px;
-    line-height: 100%;
-  }
-
-  .headingText {
-    font-size: 16px;
-    line-height: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .headingTitle {
     font-size: 30px;
     line-height: 100%;
   }
 
   .headingText {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headingTitle {
+    margin-top: -10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+  }
+  
+  .headingText {
+    font-weight: 400;
+    font-size: 13.5px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .headingTitle {
+    font-size: 18px;
+  }
+
+  .headingTitle {
+    margin-top: -12px;
+    font-size: 16px;
+  }
+
+  .headingText {
+    font-size: 11.5px;
+    line-height: 14px;
   }
 }

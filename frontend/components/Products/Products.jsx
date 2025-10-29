@@ -1,92 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import styles from "./Products.module.css";
-// import { PiHeartLight, PiHeartFill } from "react-icons/pi"; // add filled heart
-
-// const Products = ({ columns }) => {
-//   const [products, setProducts] = useState([]);
-//   const [favorites, setFavorites] = useState({});
-
-//   useEffect(() => {
-//     fetch("https://fakestoreapi.com/products")
-//       .then((res) => res.json())
-//       .then((data) => setProducts(data))
-//       .catch((err) => console.error("Error fetching products:", err));
-//   }, []);
-
-//   const toggleFavorite = (id) =>
-//     setFavorites((prev) => ({ ...prev, [id]: !prev[id] }));
-
-//   return (
-//     <section className={styles.productsWrapper}>
-//       <div
-//         className={styles.productsGrid}
-//         style={{
-//           gridTemplateColumns: `repeat(${columns}, 1fr)`,
-//         }}
-//       >
-//         {products.map((product, index) => (
-//           <article key={product.id} className={styles.card}>
-//             {/* Image + labels */}
-//             <div className={styles.imageWrapper}>
-//               {index === 0 && (
-//                 <div className={`${styles.badge} ${styles.newBadge}`}>
-//                   NEW PRODUCT
-//                 </div>
-//               )}
-//               {index === 1 && (
-//                 <div className={`${styles.badge} ${styles.outBadge}`}>
-//                   OUT OF STOCK
-//                 </div>
-//               )}
-//               <img
-//                 src={product.image}
-//                 alt={product.title}
-//                 className={styles.productImage}
-//               />
-//             </div>
-
-//             {/* Info */}
-//             <div className={styles.infoSection}>
-//               <div className={styles.productName}>
-//                 {product.title.length > 26
-//                   ? `${product.title.slice(0, 25)}...`
-//                   : product.title}
-//               </div>
-
-//               <div className={styles.priceRow}>
-//                 <p className={styles.signText}>
-//                   <span className={styles.signLink}>Sign in</span> or Create an
-//                   account to see pricing
-//                 </p>
-//                 <button
-//                   className={styles.heartButton}
-//                   onClick={() => toggleFavorite(product.id)}
-//                 >
-//                   {favorites[product.id] ? (
-//                     <PiHeartFill
-//                       className={`${styles.heartIcon} ${styles.heartActive}`}
-//                     />
-//                   ) : (
-//                     <PiHeartLight className={styles.heartIcon} />
-//                   )}
-//                 </button>
-//               </div>
-//             </div>
-//           </article>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-
-// export default Products;
-
-
-
-
-
-
 import React, { useEffect, useState, useMemo } from "react";
 import styles from "./Products.module.css";
 import { PiHeartLight, PiHeartFill } from "react-icons/pi";
@@ -144,7 +55,7 @@ const Products = ({ columns }) => {
             )}
             <img
               src={product.image}
-              alt={product.title} /* ✅ SEO alt text */
+              alt={product.title}
               title={product.title}
               loading="lazy"
               className={styles.productImage}
@@ -196,9 +107,9 @@ const Products = ({ columns }) => {
     <section className={styles.productsWrapper}>
       <div
         className={styles.productsGrid}
-        style={{
-          gridTemplateColumns: `repeat(${columns}, 1fr)`,
-        }}
+        // style={{
+        //   gridTemplateColumns: `repeat(${columns}, 1fr)`,
+        // }}
       >
         {productList}
       </div>

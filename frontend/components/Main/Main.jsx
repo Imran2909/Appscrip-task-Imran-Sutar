@@ -13,16 +13,13 @@ export default function Main() {
 
   return (
     <>
-      {/* ---------- Main Page Content ---------- */}
       <div className={styles.mainWrapper}>
         <Topbar
           initialCount={3425}
           showFilter={showFilter}
           toggleFilter={toggleFilter}
         />
-
         <div className={styles.hr} />
-
         <div className={styles.content}>
           {showFilter && (
             <aside
@@ -44,8 +41,6 @@ export default function Main() {
           </section>
         </div>
       </div>
-
-      {/* ---------- Footer (Full Width) ---------- */}
       <Footer />
     </>
   );
